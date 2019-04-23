@@ -1,0 +1,25 @@
+﻿@model CourierCompany.Models.Delivery
+
+@using (Html.BeginForm("AddEquipmentRating", "Reviews", FormMethod.Post))
+{
+    <tr>
+        <td colspan="2" align="center">Raiting delivery:</td>
+    </tr>
+
+    <tr>
+        <td>Timely delivery:</td>
+        <td>@Html.CheckBox("IsIntimeEquipment") ></td>
+    </tr>
+
+    <tr>
+        <td>Equipment completeness:</td>
+        <td>@Html.CheckBox("IsCompleteEquipment")></td>
+    </tr>
+
+    @Html.Hidden("DeliveryId", Model.DeliveryId)
+
+    <tr>
+        <td><button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button></td>
+        <td><input type="submit" class="btn btn-success btn-block" value="To add raiting" /></td>
+    </tr>
+}

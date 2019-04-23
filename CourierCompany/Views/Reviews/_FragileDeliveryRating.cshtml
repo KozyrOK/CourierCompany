@@ -1,0 +1,17 @@
+﻿@model CourierCompany.Models.DeliveryFragileRating
+
+<tr>
+    <td>Timely delivery:</td>
+    <td>@Model.IsIntimeFragile</td>
+</tr>
+
+<tr>
+    <td>Presence of defects:</td>
+    <td>@Model.IsDefectFragile</td>
+</tr>
+
+<tr>
+    <td>Package integrity:</td>
+    <td>@Model.IsPackCompleteFragile</td>
+</tr>
+}

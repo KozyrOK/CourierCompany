@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<page class="Page">
+    <h2 align="center">Search delivery for ID</h2>
+
+    @using (Html.BeginForm("FindForID", "Delivery", FormMethod.Post))
+    {
+        <table class="tableCourierCompany" align="center">
+
+            <tr>
+                <td>Please, input delivery ID</td>
+                <td><input type="number" name="id" min="1" /></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn btn-danger btn-block" onclick="location.href='@Url.Action("Main","Main")'">Cancel</button></td>
+                <td><input type="submit" class="btn btn-success btn-block" value="OK" /></td>
+            </tr>
+        </table>
+    }
+</page>
+

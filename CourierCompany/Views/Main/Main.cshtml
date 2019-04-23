@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<page class="Page">
+
+    <div align="center">
+        <button type="button" class="buttonMainMenu" onclick="location.href='@Url.Action("NewDelivery", "Delivery")'">To order new delivery</button>        
+    </div>
+
+    <div align="center">
+        <button type="button" class="buttonMainMenu" onclick="location.href='@Url.Action("FindForID", "Delivery")'">To search delivery by ID</button>        
+    </div>
+
+    <div align="center">
+        <button type="button" class="buttonMainMenu" onclick="location.href='@Url.Action("ListReviews", "Reviews")'">Clients reviews</button>        
+    </div>
+
+</page>

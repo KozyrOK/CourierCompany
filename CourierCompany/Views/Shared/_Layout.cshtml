@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier company</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <img src="~/Content/CourierCompanyLogo.jpg" alt="Logo1" class="logo" onclick="location.href='@Url.Action("Main","Main")'"/>
+        <img src="~/Content/CourierCompanyLogo2.jpg" alt="Logo2" class="logo2" />
+    </header>
+    <div class="sidenav"></div>
+    @RenderBody()
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Ibexsoft</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿@model CourierCompany.Models.Delivery
+@using CourierCompany.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<page class="Page">
+    <h2 align="center">Detail delivery:</h2>
+
+    <table align="center" class="tableCourierCompany">
+        <tr>
+            <td>Delivery ID:</td>
+            <td>@Html.DisplayFor(m => m.DeliveryId)</td>
+        </tr>
+        <tr>
+            <td>Sender Name:</td>
+            <td>@Html.DisplayFor(m => m.SenderName)</td>
+        </tr>
+
+        <tr>
+            <td>Sender Address</td>
+            <td>@Html.DisplayFor(m => m.SenderAddress)</td>
+        </tr>
+
+        <tr>
+            <td>Receiver Name:</td>
+            <td>@Html.DisplayFor(m => m.ReceiverName)</td>
+        </tr>
+
+        <tr>
+            <td>Receiver Address:</td>
+            <td>@Html.DisplayFor(m => m.ReceiverAddress)</td>
+        </tr>
+
+        <tr>
+            <td>Delivery Type:</td>
+            <td>@Html.DisplayFor(m => m.DeliveryType)</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center"><button type="button" class="btn btn-success btn-block" align="center" onclick="location.href='@Url.Action("Main", "Main")'">Main manu</button></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center"><button type="button" class="btn btn-primary btn-block" align="center" onclick="location.href='@Url.Action("ListReviews", "Reviews")'">All reviews</button></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">Add review</td>
+        </tr>
+
+        @helper ButtonAddRating(Delivery delivery)
+        {
+
+            if (delivery.DeliveryType == (DeliveryType)0)
+            {
+                @Html.Partial("_RatingFoodDelivery", delivery)
+            }
+
+            else if (delivery.DeliveryType == (DeliveryType)1)
+            {
+                @Html.Partial("_RatingFragileDelivery", delivery)
+            }
+
+            else if (delivery.DeliveryType == (DeliveryType)2)
+            {
+                @Html.Partial("_RatingEquipmentDelivery", delivery)
+            }
+        }
+
+        @ButtonAddRating(Model)
+
+    </table>
+</page>

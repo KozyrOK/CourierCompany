@@ -1,0 +1,46 @@
+﻿@model CourierCompany.Models.Delivery
+@using CourierCompany.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<page class="Page">
+    <h2 align="center">Registration of new delivery</h2>
+    <h3 align="center">Equipment delivery:</h3>
+
+    @using (Html.BeginForm("NewDelivery", "Delivery", FormMethod.Post))
+    {
+        <table class="tableCourierCompany" align="center">
+
+            <tr>
+                <td>Sender Name:</td>
+                <td>@Html.TextBoxFor(m => m.SenderName)</td>
+            </tr>
+
+            <tr>
+                <td>Sender Address:</td>
+                <td>@Html.TextBoxFor(m => m.SenderAddress)</td>
+            </tr>
+
+            <tr>
+                <td>Receiver Name:</td>
+                <td>@Html.TextBoxFor(m => m.ReceiverName)</td>
+            </tr>
+
+            <tr>
+                <td>Receiver Address:</td>
+                <td>@Html.TextBoxFor(m => m.ReceiverAddress)</td>
+            </tr>
+
+            <tr>
+                <td>Delivery Type:</td>
+                <td>@Html.DropDownListFor(m => m.DeliveryType, new SelectList(Enum.GetValues(typeof(DeliveryType))))</td>
+            </tr>
+
+            <tr>
+                <td><button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button></td>
+                <td><input type="submit" class="btn btn-success btn-block" value="OK"/></td>
+            </tr>
+        </table>
+     }
+</page>
