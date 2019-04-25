@@ -1,4 +1,5 @@
 ﻿@model CourierCompany.Models.Delivery
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -7,7 +8,7 @@
     <h2 align="center">Thank's for ordering delivery</h2>
     <h3 align="center">Detail delivery:</h3>
 
-    <table align="center">
+    <table align="center" class="tableCourierCompany">
         <tr>
             <td>Delivery ID:</td>
             <td>@Html.DisplayFor(m => m.DeliveryId)</td>

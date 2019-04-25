@@ -1,5 +1,4 @@
-﻿@model CourierCompany.Models.Delivery
-
+﻿
 @using (Html.BeginForm("AddFoodRating", "Reviews", FormMethod.Post))
 {    
         <tr>
@@ -8,24 +7,23 @@
 
         <tr>
             <td>Timely delivery:</td>
-            <td>@Html.CheckBox("IsIntimeFood")</td>
+            <td><input type="checkbox" name="IsIntimeFood"></td>
         </tr>
 
         <tr>
             <td>Food freshness:</td>
-            <td>@Html.Editor("FreshFood")</td>
+            <td><input type="number" name="FreshFood" min="1" max="10" value="10"/></td>
         </tr>
 
         <tr>
             <td>Correct packaging:</td>
-            <td>@Html.Editor("СorrectPackFood")</td>
+            <td><input type="number" name="СorrectPackFood" min="1" max="10" value="10"/></td>
         </tr>
 
-        @Html.Hidden("DeliveryId", Model.DeliveryId)
+        @Html.Hidden("DeliveryId", "ViewBag.DeliveryId") 
 
         <tr>
             <td><button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button></td>
             <td><input type="submit" class="btn btn-success btn-block" value="To add raiting" /></td>
-        </tr>
-   
+        </tr>   
 }

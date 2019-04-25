@@ -17,16 +17,14 @@ namespace CourierCompany.Controllers
             delivery.AddNewDelivery();
             delivery.GetLastDeliveryId();
             return View("DeliveryResult", delivery);
-        }
-       
-        [HttpGet]
-        public ActionResult FindForID()
+        }       
+        
+        public ActionResult FindDeliveryForID()
         {
             return View();
         }
-
-        [HttpPost]
-        public ActionResult FindForID(int? id)
+                
+        public ActionResult ViewDelivery(int? id)
         {
             if (id > 0 && id != null)
             {                
@@ -38,31 +36,23 @@ namespace CourierCompany.Controllers
                     if (delivery.DeliveryType == (DeliveryType)0)
                         {
                         int? idInBaseDeliveryRating = delivery.IdInBaseDeliveryRating;
-                        DeliveryFoodRating rating = new DeliveryFoodRating(idInBaseDeliveryRating);
-                        ViewBag.IsIntimeFood = rating.DeliveryFoodRatingId;
-                        ViewBag.FreshFood = rating.FreshFood;
-                        ViewBag.СorrectPackFood = rating.СorrectPackFood;
+                        DeliveryFoodRating rating = new DeliveryFoodRating(idInBaseDeliveryRating);                        
                         return View("DeliveryIDRating", delivery);
                         }
                     else if (delivery.DeliveryType == (DeliveryType)1)
                         {
                         int? idInBaseDeliveryRating = delivery.IdInBaseDeliveryRating;
-                        DeliveryFragileRating rating = new DeliveryFragileRating(idInBaseDeliveryRating);
-                        ViewBag.IsIntimeFragile = rating.IsIntimeFragile;
-                        ViewBag.IsDefectFragile = rating.IsDefectFragile;
-                        ViewBag.IsPackCompleteFragile = rating.IsPackCompleteFragile;
+                        DeliveryFragileRating rating = new DeliveryFragileRating(idInBaseDeliveryRating);                        
                         return View("DeliveryIDRating", delivery);
                         }
                     else if (delivery.DeliveryType == (DeliveryType)2)
                         {
                         int? idInBaseDeliveryRating = delivery.IdInBaseDeliveryRating;
-                        DeliveryEquipmentRating rating = new DeliveryEquipmentRating(idInBaseDeliveryRating);
-                        ViewBag.IsIntimeEquipment = rating.IsIntimeEquipment;
-                        ViewBag.IsCompleteEquipment = rating.IsIntimeEquipment;
+                        DeliveryEquipmentRating rating = new DeliveryEquipmentRating(idInBaseDeliveryRating);                       
                         return View("DeliveryIDRating", delivery);
                         }                    
             }
-            return View("Main");
+            return View("~Views/Main/Main.cshtml");
         }        
     }
 }

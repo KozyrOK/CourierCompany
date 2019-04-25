@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 
 namespace CourierCompany.Models
@@ -57,10 +58,14 @@ namespace CourierCompany.Models
         public void SetIdInBaseDeliveryRating(int? id)
         {
             using (CourierCompanyContext context = new CourierCompanyContext())
-            {                
-                Delivery delivery = context.Deliveries.Find(id);
-                delivery.IdInBaseDeliveryRating = (int)id;
-                delivery.IsPresentRating = true;
+            {
+                Delivery delivery = new Delivery(id)
+                {
+                    IdInBaseDeliveryRating = (int)id,
+                    IsPresentRating = true
+                };
+
+                context.Entry(delivery).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

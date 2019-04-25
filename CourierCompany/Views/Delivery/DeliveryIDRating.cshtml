@@ -49,19 +49,19 @@
         if (delivery.DeliveryType == (DeliveryType)0)
             {
             DeliveryFoodRating rating = new DeliveryFoodRating(id);
-            @Html.Partial("_FoodDeliveryRating", rating)
+            @Html.Partial("~/Views/Reviews/_FoodDeliveryRating.cshtml", rating)
             }
 
         else if (delivery.DeliveryType == (DeliveryType)1)
             {
             DeliveryFragileRating rating = new DeliveryFragileRating(id);
-            @Html.Partial("_FragileDeliveryRating", rating)
+            @Html.Partial("~/Views/Reviews/_FragileDeliveryRating.cshtml", rating)
             }
 
         else if (delivery.DeliveryType == (DeliveryType)2)
             {
             DeliveryEquipmentRating rating = new DeliveryEquipmentRating(id);
-            @Html.Partial("_EquipmentDeliveryRating", rating)
+            @Html.Partial("~/Views/Reviews/_EquipmentDeliveryRating.cshtml", rating)
             }
         }
 

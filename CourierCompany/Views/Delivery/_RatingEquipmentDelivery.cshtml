@@ -1,5 +1,4 @@
-﻿@model CourierCompany.Models.Delivery
-
+﻿
 @using (Html.BeginForm("AddEquipmentRating", "Reviews", FormMethod.Post))
 {
     <tr>
@@ -8,15 +7,15 @@
 
     <tr>
         <td>Timely delivery:</td>
-        <td>@Html.CheckBox("IsIntimeEquipment") ></td>
+        <td><input type="checkbox" name="IsIntimeEquipment"></td>
     </tr>
 
     <tr>
         <td>Equipment completeness:</td>
-        <td>@Html.CheckBox("IsCompleteEquipment")></td>
+        <td><input type="checkbox" name="IsCompleteEquipment"></td>
     </tr>
 
-    @Html.Hidden("DeliveryId", Model.DeliveryId)
+    @Html.Hidden("DeliveryId", "ViewBag.DeliveryId")
 
     <tr>
         <td><button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button></td>

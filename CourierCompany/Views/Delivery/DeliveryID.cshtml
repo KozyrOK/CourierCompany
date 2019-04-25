@@ -52,20 +52,22 @@
 
         @helper ButtonAddRating(Delivery delivery)
         {
+        
+        ViewBag.DeliveryId = delivery.DeliveryId;
 
-            if (delivery.DeliveryType == (DeliveryType)0)
+        if (delivery.DeliveryType == (DeliveryType)0)
             {
-                @Html.Partial("_RatingFoodDelivery", delivery)
+                @Html.Partial("_RatingFoodDelivery")
             }
 
-            else if (delivery.DeliveryType == (DeliveryType)1)
+        else if (delivery.DeliveryType == (DeliveryType)1)
             {
-                @Html.Partial("_RatingFragileDelivery", delivery)
+                @Html.Partial("_RatingFragileDelivery")
             }
 
-            else if (delivery.DeliveryType == (DeliveryType)2)
+        else if (delivery.DeliveryType == (DeliveryType)2)
             {
-                @Html.Partial("_RatingEquipmentDelivery", delivery)
+                @Html.Partial("_RatingEquipmentDelivery")
             }
         }
 

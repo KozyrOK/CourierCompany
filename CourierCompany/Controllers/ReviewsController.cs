@@ -18,9 +18,9 @@ namespace CourierCompany.Controllers
         {
             rating.AddDeliveryFoodRating();
             int? id = rating.GetLastDeliveryFoodRatingId();
-            Delivery delivery = new Delivery(id);
+            Delivery delivery = new Delivery();
             delivery.SetIdInBaseDeliveryRating(id);
-            return View("DeliveryIDRating", delivery);
+            return View("~/Views/Delivery/DeliveryIDRating.cshtml", delivery);
         }
 
         [HttpPost]
@@ -28,9 +28,9 @@ namespace CourierCompany.Controllers
         {
             rating.AddDeliveryFragileRating();
             int? id = rating.GetLastDeliveryFragileRatingId();
-            Delivery delivery = new Delivery(id);
+            Delivery delivery = new Delivery();
             delivery.SetIdInBaseDeliveryRating(id);
-            return View("DeliveryIDRating", delivery);
+            return View("~/Views/Delivery/DeliveryIDRating.cshtml", delivery);
         }
 
         [HttpPost]
@@ -38,9 +38,9 @@ namespace CourierCompany.Controllers
         {
             rating.AddDeliveryEquipmentRating();
             int? id = rating.GetLastDeliveryEquipmentRatingId();
-            Delivery delivery = new Delivery(id);
+            Delivery delivery = new Delivery();
             delivery.SetIdInBaseDeliveryRating(id);
-            return View("DeliveryIDRating", delivery);
+            return View("~/Views/Delivery/DeliveryIDRating.cshtml", delivery);
         }       
 
     }

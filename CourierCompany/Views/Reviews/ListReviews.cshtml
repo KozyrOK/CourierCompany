@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<CourierCompany.Models.Delivery>
-@using CourierCompany.Models
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,11 +8,15 @@
     <h2 align="center">Reviews</h2>
     <table class="tableCourierCompany" border="1" align="center">
         <tr>
+            <th colspan="2">@Html.ActionLink("Main Menu", "Main", "Main", null, new { @class = "btn btn-info btn-block" })</th>
+            <th colspan="5">@Html.ActionLink("Find for Id", "FindDeliveryForID", "Delivery", null, new { @class = "btn btn-success btn-block" }) </th>
+        </tr>
+        <tr>
             <th># delivery</th>
             <th>Sender Name</th>
             <th>Receiver Name</th>
             <th>Delivery Type</th>
-            <th></th>
+            <th>Reviews</th>
         </tr>
 
         @foreach (var item in Model)
@@ -32,7 +35,7 @@
                 @Html.DisplayFor(modelItem => item.DeliveryType)
             </td>
             <td>                
-                @Html.ActionLink("Detail", "Delivery", "FindForID", new { id = item.DeliveryId }, new { @class="btn btn-success btn-block" } )               
+                @Html.ActionLink("Detail", "ViewDelivery", "Delivery", new { id = item.DeliveryId }, new { @class="btn btn-success btn-block" } )               
             </td>
          </tr>
          }
