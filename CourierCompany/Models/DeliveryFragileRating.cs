@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 
 namespace CourierCompany.Models
@@ -7,11 +8,12 @@ namespace CourierCompany.Models
     {
         [Key]        
         public int? DeliveryFragileRatingId { get; set; }
-        public int DeliveryId { get; set; }
+        public int? IdDelivery { get; set; }
         public bool IsIntimeFragile { get; set; }
-        public bool IsDefectFragile { get; set; }
-        [Range(1, 10)]
+        public bool IsDefectFragile { get; set; }        
         public byte IsPackCompleteFragile { get; set; }
+        public byte CommonDeliveryRaiting { get; set; }
+        public string TextComment { get; set; }
 
         public DeliveryFragileRating() { }
 
@@ -23,29 +25,33 @@ namespace CourierCompany.Models
                 if (temp != null)
                 {
                     DeliveryFragileRatingId = temp.DeliveryFragileRatingId;
-                    DeliveryId = temp.DeliveryId;
+                    IdDelivery = temp.IdDelivery;
                     IsIntimeFragile = temp.IsIntimeFragile;
                     IsDefectFragile = temp.IsDefectFragile;
                     IsPackCompleteFragile = temp.IsPackCompleteFragile;
+                    CommonDeliveryRaiting = temp.CommonDeliveryRaiting;
+                    TextComment = temp.TextComment;
                 }
             }
-        }
+        }        
 
-        public void AddDeliveryFragileRating()
+        public int? AddDeliveryFragileRating()
         {
             using (CourierCompanyContext context = new CourierCompanyContext())
             {
                 context.DeliveryFragileRatings.Add(this);
                 context.SaveChanges();
+                int? LastId = context.DeliveryFragileRatings.Count();
+                return LastId;
             }
         }
 
-        public int GetLastDeliveryFragileRatingId()
+        public void DeliveryFragileRatingModified()
         {
             using (CourierCompanyContext context = new CourierCompanyContext())
             {
-                int id = context.DeliveryFragileRatings.Count();
-                return id;
+                context.Entry(this).State = EntityState.Modified;
+                context.SaveChanges();
             }
         }
     }

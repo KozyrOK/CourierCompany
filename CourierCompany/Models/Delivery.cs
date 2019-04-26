@@ -9,10 +9,10 @@ namespace CourierCompany.Models
     {
         [Key]
         public int? DeliveryId { get; set; }
-        public DeliveryType DeliveryType { get; set; }
-        public string SenderName { get; set; }
-        public string SenderAddress { get; set; }
-        public string ReceiverName { get; set; }
+        public DeliveryType DeliveryType { get; set; }        
+        public string SenderName { get; set; }        
+        public string SenderAddress { get; set; }        
+        public string ReceiverName { get; set; }        
         public string ReceiverAddress { get; set; }
         public int? IdInBaseDeliveryRating { get; set; }
         public bool IsPresentRating { get; set; }
@@ -43,29 +43,43 @@ namespace CourierCompany.Models
             {
                 context.Deliveries.Add(this);
                 context.SaveChanges();
+                int? LastId = context.Deliveries.Count();
+                DeliveryId = LastId;
             }
         }
 
-        public int GetLastDeliveryId()
+        public int? AddRating()
         {
-            using (CourierCompanyContext context = new CourierCompanyContext())
+            int? idRating = null;
+
+            if (DeliveryType == (DeliveryType)0)
             {
-                int id = context.Deliveries.Count();
-                return id;
+                DeliveryFoodRating rating = new DeliveryFoodRating();
+                rating.IdDelivery = DeliveryId;                
+                idRating = rating.AddDeliveryFoodRating();
             }
-        }
 
-        public void SetIdInBaseDeliveryRating(int? id)
+            else if (DeliveryType == (DeliveryType)1)
+            {
+                DeliveryFragileRating rating = new DeliveryFragileRating();
+                rating.IdDelivery = DeliveryId;
+                idRating = rating.AddDeliveryFragileRating();                
+            }
+
+            else if (DeliveryType == (DeliveryType)2)
+            {
+                DeliveryEquipmentRating rating = new DeliveryEquipmentRating();
+                rating.IdDelivery = DeliveryId;
+                idRating = rating.AddDeliveryEquipmentRating();
+            }
+            return idRating;
+        }        
+
+        public void DeliveryModified()
         {
             using (CourierCompanyContext context = new CourierCompanyContext())
             {
-                Delivery delivery = new Delivery(id)
-                {
-                    IdInBaseDeliveryRating = (int)id,
-                    IsPresentRating = true
-                };
-
-                context.Entry(delivery).State = EntityState.Modified;
+                context.Entry(this).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

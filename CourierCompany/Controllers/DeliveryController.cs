@@ -14,8 +14,10 @@ namespace CourierCompany.Controllers
         [HttpPost]
         public ActionResult NewDelivery(Delivery delivery)
         {
-            delivery.AddNewDelivery();
-            delivery.GetLastDeliveryId();
+            delivery.AddNewDelivery();            
+            int? idRating = delivery.AddRating();
+            delivery.IdInBaseDeliveryRating = idRating;
+            delivery.DeliveryModified();
             return View("DeliveryResult", delivery);
         }       
         
@@ -28,31 +30,16 @@ namespace CourierCompany.Controllers
         {
             if (id > 0 && id != null)
             {                
-                Delivery delivery = new Delivery(id);                
+                Delivery delivery = new Delivery(id);        
 
                 if (delivery.DeliveryId != null && delivery.IsPresentRating == false)                    
                     return View("DeliveryID", delivery);
+                else if (delivery.IsPresentRating == true)
+                    return View("DeliveryIDRating", delivery);
                 else
-                    if (delivery.DeliveryType == (DeliveryType)0)
-                        {
-                        int? idInBaseDeliveryRating = delivery.IdInBaseDeliveryRating;
-                        DeliveryFoodRating rating = new DeliveryFoodRating(idInBaseDeliveryRating);                        
-                        return View("DeliveryIDRating", delivery);
-                        }
-                    else if (delivery.DeliveryType == (DeliveryType)1)
-                        {
-                        int? idInBaseDeliveryRating = delivery.IdInBaseDeliveryRating;
-                        DeliveryFragileRating rating = new DeliveryFragileRating(idInBaseDeliveryRating);                        
-                        return View("DeliveryIDRating", delivery);
-                        }
-                    else if (delivery.DeliveryType == (DeliveryType)2)
-                        {
-                        int? idInBaseDeliveryRating = delivery.IdInBaseDeliveryRating;
-                        DeliveryEquipmentRating rating = new DeliveryEquipmentRating(idInBaseDeliveryRating);                       
-                        return View("DeliveryIDRating", delivery);
-                        }                    
+                    return View("~/Views/Main/Main.cshtml");
             }
-            return View("~Views/Main/Main.cshtml");
+            return View("~/Views/Main/Main.cshtml");
         }        
     }
 }

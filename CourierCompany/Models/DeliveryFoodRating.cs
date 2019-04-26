@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 
 namespace CourierCompany.Models
@@ -7,12 +8,12 @@ namespace CourierCompany.Models
     {
         [Key]        
         public int? DeliveryFoodRatingId { get; set; }
-        public int DeliveryId { get; set; }
-        public bool IsIntimeFood { get; set; }
-        [Range(1, 10)]
-        public byte FreshFood { get; set; }
-        [Range(1, 10)]
+        public int? IdDelivery { get; set; }
+        public bool IsIntimeFood { get; set; }        
+        public byte FreshFood { get; set; }        
         public byte СorrectPackFood { get; set; }
+        public byte CommonDeliveryRaiting { get; set; }        
+        public string TextComment { get; set; }
 
         public DeliveryFoodRating() { }
 
@@ -24,30 +25,34 @@ namespace CourierCompany.Models
                 if (temp != null)
                 {
                     DeliveryFoodRatingId = temp.DeliveryFoodRatingId;
-                    DeliveryId = temp.DeliveryId;
+                    IdDelivery = temp.IdDelivery;
                     IsIntimeFood = temp.IsIntimeFood;
                     FreshFood = temp.FreshFood;
                     СorrectPackFood = temp.СorrectPackFood;
+                    CommonDeliveryRaiting = temp.CommonDeliveryRaiting;
+                    TextComment = temp.TextComment;
                 }
             }
         }
 
-        public void AddDeliveryFoodRating()
+        public int? AddDeliveryFoodRating()
         {
             using (CourierCompanyContext context = new CourierCompanyContext())
-            {
+            {                
                 context.DeliveryFoodRatings.Add(this);
                 context.SaveChanges();
+                int? LastId = context.DeliveryFoodRatings.Count();
+                return LastId;
             }
-        }
+        }        
 
-        public int GetLastDeliveryFoodRatingId()
+        public void DeliveryFoodRatingModified()
         {
             using (CourierCompanyContext context = new CourierCompanyContext())
-            {
-                int id = context.DeliveryFoodRatings.Count();
-                return id;
+            {                
+                context.Entry(this).State = EntityState.Modified;
+                context.SaveChanges();
             }
-        }
+        }        
     }
 }

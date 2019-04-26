@@ -47,7 +47,7 @@
         </tr>
 
         <tr>
-            <td colspan="2" align="center">Add review</td>
+            <td colspan="2" align="center">Add review:</td>
         </tr>
 
         @helper ButtonAddRating(Delivery delivery)
@@ -57,17 +57,17 @@
 
         if (delivery.DeliveryType == (DeliveryType)0)
             {
-                @Html.Partial("_RatingFoodDelivery")
+                @Html.Partial("_RatingFoodDelivery", Model)
             }
 
         else if (delivery.DeliveryType == (DeliveryType)1)
             {
-                @Html.Partial("_RatingFragileDelivery")
+                @Html.Partial("_RatingFragileDelivery", Model)
             }
 
         else if (delivery.DeliveryType == (DeliveryType)2)
             {
-                @Html.Partial("_RatingEquipmentDelivery")
+                @Html.Partial("_RatingEquipmentDelivery", Model)
             }
         }
 

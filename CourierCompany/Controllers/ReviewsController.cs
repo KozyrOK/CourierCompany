@@ -14,32 +14,35 @@ namespace CourierCompany.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddFoodRating(DeliveryFoodRating rating)
+        public ActionResult ModifiedFoodRating(DeliveryFoodRating rating)
         {
-            rating.AddDeliveryFoodRating();
-            int? id = rating.GetLastDeliveryFoodRatingId();
-            Delivery delivery = new Delivery();
-            delivery.SetIdInBaseDeliveryRating(id);
+            rating.DeliveryFoodRatingModified(); 
+            int? id = rating.IdDelivery;
+            Delivery delivery = new Delivery(id);
+            delivery.IsPresentRating = true;            
+            delivery.DeliveryModified();
             return View("~/Views/Delivery/DeliveryIDRating.cshtml", delivery);
         }
 
         [HttpPost]
-        public ActionResult AddFragileRating(DeliveryFragileRating rating)
+        public ActionResult ModifiedFragileRating(DeliveryFragileRating rating)
         {
-            rating.AddDeliveryFragileRating();
-            int? id = rating.GetLastDeliveryFragileRatingId();
-            Delivery delivery = new Delivery();
-            delivery.SetIdInBaseDeliveryRating(id);
+            rating.DeliveryFragileRatingModified();
+            int? id = rating.IdDelivery;
+            Delivery delivery = new Delivery(id);
+            delivery.IsPresentRating = true;
+            delivery.DeliveryModified();
             return View("~/Views/Delivery/DeliveryIDRating.cshtml", delivery);
         }
 
         [HttpPost]
-        public ActionResult AddEquipmentRating(DeliveryEquipmentRating rating)
+        public ActionResult ModifiedEquipmentRating(DeliveryEquipmentRating rating)
         {
-            rating.AddDeliveryEquipmentRating();
-            int? id = rating.GetLastDeliveryEquipmentRatingId();
-            Delivery delivery = new Delivery();
-            delivery.SetIdInBaseDeliveryRating(id);
+            rating.DeliveryEquipmentRatingModified();
+            int? id = rating.IdDelivery;
+            Delivery delivery = new Delivery(id);
+            delivery.IsPresentRating = true;            
+            delivery.DeliveryModified();
             return View("~/Views/Delivery/DeliveryIDRating.cshtml", delivery);
         }       
 

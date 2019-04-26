@@ -1,29 +1,35 @@
 ﻿
-@using (Html.BeginForm("AddFoodRating", "Reviews", FormMethod.Post))
-{    
-        <tr>
-            <td colspan="2" align="center">Raiting delivery:</td>
-        </tr>
+@using (Html.BeginForm("ModifiedFoodRating", "Reviews", FormMethod.Post))
+{
+    <input type="hidden" name="DeliveryFoodRatingId" value="@Model.IdInBaseDeliveryRating" />
+    <input type="hidden" name="IdDelivery" value="@Model.DeliveryId" />
 
-        <tr>
-            <td>Timely delivery:</td>
-            <td><input type="checkbox" name="IsIntimeFood"></td>
-        </tr>
+    <tr>
+        <td>Timely delivery:</td>
+        <td><input type="checkbox" name="IsIntimeFood"></td>
+    </tr>
 
-        <tr>
-            <td>Food freshness:</td>
-            <td><input type="number" name="FreshFood" min="1" max="10" value="10"/></td>
-        </tr>
+    <tr>
+        <td>Food freshness:</td>
+        <td><input type="number" name="FreshFood" min="0" max="10" value="10" /></td>
+    </tr>
 
-        <tr>
-            <td>Correct packaging:</td>
-            <td><input type="number" name="СorrectPackFood" min="1" max="10" value="10"/></td>
-        </tr>
+    <tr>
+        <td>Correct packaging:</td>
+        <td><input type="number" name="СorrectPackFood" min="0" max="10" value="10" /></td>
+    </tr>
 
-        @Html.Hidden("DeliveryId", "ViewBag.DeliveryId") 
+    <tr>
+        <td>Common delivery raiting:</td>
+        <td><input type="number" name="CommonDeliveryRaiting" min="0" max="10" value="10" /></td>
+    </tr>
 
-        <tr>
-            <td><button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button></td>
-            <td><input type="submit" class="btn btn-success btn-block" value="To add raiting" /></td>
-        </tr>   
+    <tr>
+        <td>Comment:</td>
+        <td><input type="text" name="TextComment" maxlength="100" class="p-2"/></td>
+    </tr>
+    <tr>
+        <td><button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button></td>
+        <td><input type="submit" class="btn btn-success btn-block" value="To add raiting" /></td>
+    </tr>
 }

@@ -1,9 +1,8 @@
 ﻿
-@using (Html.BeginForm("AddEquipmentRating", "Reviews", FormMethod.Post))
+@using (Html.BeginForm("ModifiedEquipmentRating", "Reviews", FormMethod.Post))
 {
-    <tr>
-        <td colspan="2" align="center">Raiting delivery:</td>
-    </tr>
+    <input type="hidden" name="DeliveryEquipmentRatingId" value="@Model.IdInBaseDeliveryRating" />
+    <input type="hidden" name="IdDelivery" value="@Model.DeliveryId" />
 
     <tr>
         <td>Timely delivery:</td>
@@ -15,7 +14,15 @@
         <td><input type="checkbox" name="IsCompleteEquipment"></td>
     </tr>
 
-    @Html.Hidden("DeliveryId", "ViewBag.DeliveryId")
+    <tr>
+        <td>Common delivery raiting:</td>
+        <td><input type="number" name="CommonDeliveryRaiting" min="0" max="10" value="10" /></td>
+    </tr>
+
+    <tr>
+        <td>Comment:</td>
+        <td><input type="text" name="TextComment" maxlength="100" class="p-2"/></td>
+    </tr>
 
     <tr>
         <td><button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button></td>
