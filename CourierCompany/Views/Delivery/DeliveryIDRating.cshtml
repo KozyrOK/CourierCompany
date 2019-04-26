@@ -8,33 +8,33 @@
 <page class="Page">
     <h2 align="center">Detail delivery:</h2>
 
-    <table align="center" class="tableCourierCompany">
+    <table align="center" class="tableCourierCompany" border="1">
         <tr>
-            <td>Delivery ID:</td>
+            <td>@Html.LabelFor(m => m.DeliveryId):</td>
             <td>@Html.DisplayFor(m => m.DeliveryId)</td>
         </tr>
         <tr>
-            <td>Sender Name:</td>
+            <td>@Html.LabelFor(m => m.SenderName):</td>
             <td>@Html.DisplayFor(m => m.SenderName)</td>
         </tr>
 
         <tr>
-            <td>Sender Address</td>
+            <td>@Html.LabelFor(m => m.SenderAddress):</td>
             <td>@Html.DisplayFor(m => m.SenderAddress)</td>
         </tr>
 
         <tr>
-            <td>Receiver Name:</td>
+            <td>@Html.LabelFor(m => m.ReceiverName):</td>
             <td>@Html.DisplayFor(m => m.ReceiverName)</td>
         </tr>
 
         <tr>
-            <td>Receiver Address:</td>
+            <td>@Html.LabelFor(m => m.ReceiverAddress):</td>
             <td>@Html.DisplayFor(m => m.ReceiverAddress)</td>
         </tr>
 
         <tr>
-            <td>Delivery Type:</td>
+            <td>@Html.LabelFor(m => m.DeliveryType):</td>
             <td>@Html.DisplayFor(m => m.DeliveryType)</td>
         </tr>
 

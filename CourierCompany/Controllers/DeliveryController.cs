@@ -12,13 +12,17 @@ namespace CourierCompany.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewDelivery(Delivery delivery)
+        public ActionResult NewDelivery([Bind(Include = "DeliveryType,SenderName,SenderAddress,ReceiverName,ReceiverAddress")] Delivery delivery)
         {
-            delivery.AddNewDelivery();            
-            int? idRating = delivery.AddRating();
-            delivery.IdInBaseDeliveryRating = idRating;
-            delivery.DeliveryModified();
-            return View("DeliveryResult", delivery);
+            if (ModelState.IsValid)
+            {
+                delivery.AddNewDelivery();
+                int? idRating = delivery.AddRating();
+                delivery.IdInBaseDeliveryRating = idRating;
+                delivery.DeliveryModified();
+                return View("DeliveryResult", delivery);
+            }
+            return View("NewDelivery");            
         }       
         
         public ActionResult FindDeliveryForID()

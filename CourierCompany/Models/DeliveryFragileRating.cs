@@ -9,10 +9,18 @@ namespace CourierCompany.Models
         [Key]        
         public int? DeliveryFragileRatingId { get; set; }
         public int? IdDelivery { get; set; }
+        [Display(Name = "Timely delivery")]        
         public bool IsIntimeFragile { get; set; }
-        public bool IsDefectFragile { get; set; }        
+        [Display(Name = "Presence of defects")]
+        public bool IsDefectFragile { get; set; }
+        [Display(Name = "Package integrity")]
+        [Range(0, 10)]
         public byte IsPackCompleteFragile { get; set; }
+        [Display(Name = "Common delivery raiting")]
+        [Range(0, 10)]
         public byte CommonDeliveryRaiting { get; set; }
+        [Display(Name = "Comment")]
+        [MaxLength(200)]
         public string TextComment { get; set; }
 
         public DeliveryFragileRating() { }

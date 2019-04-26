@@ -1,21 +1,21 @@
 ﻿@model CourierCompany.Models.DeliveryEquipmentRating
 
 <tr>
-    <td>Timely delivery:</td>
+    <td>@Html.LabelFor(m => m.IsIntimeEquipment):</td>
     <td>@Model.IsIntimeEquipment</td>
 </tr>
 
 <tr>
-    <td>Equipment completeness:</td>
+    <td>@Html.LabelFor(m => m.IsCompleteEquipment):</td>
     <td>@Model.IsCompleteEquipment</td>
 </tr>
 
 <tr>
-    <td>Common delivery raiting:</td>
+    <td>@Html.LabelFor(m => m.CommonDeliveryRaiting):</td>
     <td>@Model.CommonDeliveryRaiting</td>
 </tr>
 
 <tr>
     <td>Comment:</td>
-    <td>@Model.TextComment</td>
+    <td><textarea readonly type="text" name="TextComment" class="form-control" rows="3">@Model.TextComment)</textarea></td>
 </tr>

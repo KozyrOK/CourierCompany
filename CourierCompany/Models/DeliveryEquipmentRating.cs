@@ -9,9 +9,15 @@ namespace CourierCompany.Models
         [Key]
         public int? DeliveryEquipmentRatingId { get; set; }
         public int? IdDelivery { get; set; }
+        [Display(Name = "Timely delivery")]
         public bool IsIntimeEquipment { get; set; }
+        [Display(Name = "Equipment completeness")]
         public bool IsCompleteEquipment { get; set; }
+        [Display(Name = "Common delivery raiting")]
+        [Range (0, 10)]
         public byte CommonDeliveryRaiting { get; set; }
+        [Display(Name = "Comment")]
+        [MaxLength (200)]
         public string TextComment { get; set; }
 
 

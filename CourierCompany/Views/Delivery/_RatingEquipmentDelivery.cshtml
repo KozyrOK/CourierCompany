@@ -1,7 +1,7 @@
 ﻿
 @using (Html.BeginForm("ModifiedEquipmentRating", "Reviews", FormMethod.Post))
 {
-    <input type="hidden" name="DeliveryEquipmentRatingId" value="@Model.IdInBaseDeliveryRating" />
+    <input type="hidden" name="DeliveryEquipmentRatingId" value="@Model.IdInBaseDeliveryRating"/>
     <input type="hidden" name="IdDelivery" value="@Model.DeliveryId" />
 
     <tr>
@@ -21,7 +21,7 @@
 
     <tr>
         <td>Comment:</td>
-        <td><input type="text" name="TextComment" maxlength="100" class="p-2"/></td>
+        <td><textarea input type="text" name="TextComment" class="form-control" rows="3" maxlength="200"></textarea></td>
     </tr>
 
     <tr>

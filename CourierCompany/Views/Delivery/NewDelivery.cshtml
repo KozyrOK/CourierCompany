@@ -11,37 +11,60 @@
 
     @using (Html.BeginForm("NewDelivery", "Delivery", FormMethod.Post))
     {
-        <table class="tableCourierCompany" align="center">
+        <table class="tableCourierCompany" align="center" border="1">
 
             <tr>
-                <td>Sender Name:</td>
-                <td>@Html.TextBoxFor(m => m.SenderName)</td>
+                <td>@Html.LabelFor(m => m.SenderName):</td>
+                <td>@Html.TextBoxFor(m => m.SenderName)</td>                
             </tr>
 
             <tr>
-                <td>Sender Address:</td>
-                <td>@Html.TextBoxFor(m => m.SenderAddress)</td>
+                <td>@Html.LabelFor(m => m.SenderAddress):</td>
+                <td>@Html.TextBoxFor(m => m.SenderAddress)</td>                
             </tr>
 
             <tr>
-                <td>Receiver Name:</td>
-                <td>@Html.TextBoxFor(m => m.ReceiverName)</td>
+                <td>@Html.LabelFor(m => m.ReceiverName):</td>
+                <td>@Html.TextBoxFor(m => m.ReceiverName)</td>                
             </tr>
 
             <tr>
-                <td>Receiver Address:</td>
-                <td>@Html.TextBoxFor(m => m.ReceiverAddress)</td>
+                <td>@Html.LabelFor(m => m.ReceiverAddress):</td>
+                <td>@Html.TextBoxFor(m => m.ReceiverAddress)</td>                
             </tr>
 
             <tr>
-                <td>Delivery Type:</td>
-                <td>@Html.DropDownListFor(m => m.DeliveryType, new SelectList(Enum.GetValues(typeof(DeliveryType))))</td>
+                <td>@Html.LabelFor(m => m.DeliveryType):</td>
+                <td>@Html.DropDownListFor(m => m.DeliveryType, new SelectList(Enum.GetValues(typeof(DeliveryType))), "Select type delivery")</td>                
             </tr>
 
             <tr>
-                <td><button type="button" class="btn btn-danger btn-block" onclick="window.history.back();">Cancel</button></td>
-                <td><input type="submit" class="btn btn-success btn-block" value="OK"/></td>
+                <td><button type="button" class="btn btn-danger btn-block" onclick="location.href='@Url.Action("Main", "Main")'">Cancel</button></td>
+                <td><input type="submit" class="btn btn-success btn-block" value="OK" /></td>                
             </tr>
+            
+
         </table>
      }
+        <table class="tableCourierCompany" align="center">
+            <tr>
+                <td colspan="2">@Html.ValidationMessageFor(m => m.SenderName)</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">@Html.ValidationMessageFor(m => m.SenderAddress)</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">@Html.ValidationMessageFor(m => m.ReceiverName)</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">@Html.ValidationMessageFor(m => m.ReceiverAddress)</td>
+            </tr>
+
+            <tr>
+                <td colspan="2">@Html.ValidationMessageFor(m => m.DeliveryType)</td>
+            </tr>
+        </table>
 </page>

@@ -9,10 +9,19 @@ namespace CourierCompany.Models
         [Key]        
         public int? DeliveryFoodRatingId { get; set; }
         public int? IdDelivery { get; set; }
-        public bool IsIntimeFood { get; set; }        
-        public byte FreshFood { get; set; }        
+        [Display(Name = "Timely delivery")]
+        public bool IsIntimeFood { get; set; }
+        [Display(Name = "Food freshness")]
+        [Range(0, 10)]
+        public byte FreshFood { get; set; }
+        [Display(Name = "Correct packaging")]
+        [Range(0, 10)]
         public byte СorrectPackFood { get; set; }
-        public byte CommonDeliveryRaiting { get; set; }        
+        [Display(Name = "Common delivery raiting")]
+        [Range(0, 10)]
+        public byte CommonDeliveryRaiting { get; set; }
+        [Display(Name = "Comment")]
+        [MaxLength(200)]
         public string TextComment { get; set; }
 
         public DeliveryFoodRating() { }
