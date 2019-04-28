@@ -14,34 +14,33 @@
 
             <tr>
                 <td>@Html.LabelFor(m => m.SenderName):</td>
-                <td>@Html.TextBoxFor(m => m.SenderName)</td>                
+                <td>@Html.TextBoxFor(m => m.SenderName, new { @class = "form-control", maxlength = "50" })</td>                
             </tr>
 
             <tr>
                 <td>@Html.LabelFor(m => m.SenderAddress):</td>
-                <td>@Html.TextBoxFor(m => m.SenderAddress)</td>                
+                <td>@Html.TextBoxFor(m => m.SenderAddress, new { @class = "form-control", maxlength = "100" })</td>                
             </tr>
 
             <tr>
                 <td>@Html.LabelFor(m => m.ReceiverName):</td>
-                <td>@Html.TextBoxFor(m => m.ReceiverName)</td>                
+                <td>@Html.TextBoxFor(m => m.ReceiverName, new { @class = "form-control", maxlength = "50" })</td>                
             </tr>
 
             <tr>
                 <td>@Html.LabelFor(m => m.ReceiverAddress):</td>
-                <td>@Html.TextBoxFor(m => m.ReceiverAddress)</td>                
+                <td>@Html.TextBoxFor(m => m.ReceiverAddress, new { @class = "form-control", maxlength = "100" })</td>                
             </tr>
 
             <tr>
                 <td>@Html.LabelFor(m => m.DeliveryType):</td>
-                <td>@Html.DropDownListFor(m => m.DeliveryType, new SelectList(Enum.GetValues(typeof(DeliveryType))), "Select type delivery")</td>                
+                <td>@Html.DropDownListFor(m => m.DeliveryType, new SelectList(Enum.GetValues(typeof(DeliveryType))), "Select type delivery", new { @class = "dropDownListNewDelivery" })</td>                
             </tr>
 
             <tr>
-                <td><button type="button" class="btn btn-danger btn-block" onclick="location.href='@Url.Action("Main", "Main")'">Cancel</button></td>
-                <td><input type="submit" class="btn btn-success btn-block" value="OK" /></td>                
-            </tr>
-            
+                <td><button type="button" class="btn btn-danger btn-block" width="100" onclick="location.href='@Url.Action("Main", "Main")'">Cancel</button></td>
+                <td><input type="submit" class="btn btn-success btn-block" width="100" value="OK" /></td>                
+            </tr>            
 
         </table>
      }

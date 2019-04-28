@@ -11,19 +11,23 @@ namespace CourierCompany.Models
         [Display(Name = "Id delivery")]
         public int? DeliveryId { get; set; }
         [Display(Name = "Delivery type")]
-        [Required(ErrorMessage = "Please, select type delivery")]
+        [Required(ErrorMessage = "Please, select type delivery")]        
         public DeliveryType DeliveryType { get; set; }
         [Display(Name = "Sender name")]
         [Required]
+        [MaxLength(50)]
         public string SenderName { get; set; }
         [Display(Name = "Sender address")]
         [Required]
+        [MaxLength(100)]
         public string SenderAddress { get; set; }
         [Display(Name = "Receiver name")]
         [Required]
+        [MaxLength(50)]
         public string ReceiverName { get; set; }
         [Display(Name = "Receiver address")]
         [Required]
+        [MaxLength(100)]
         public string ReceiverAddress { get; set; }
         public int? IdInBaseDeliveryRating { get; set; }
         public bool IsPresentRating { get; set; }
