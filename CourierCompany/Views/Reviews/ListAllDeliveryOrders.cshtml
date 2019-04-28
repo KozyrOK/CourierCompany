@@ -5,7 +5,7 @@
 }
 
 <page class="Page">
-    <h2 align="center">Reviews</h2>
+    <h2 align="center">List of all delivery orders</h2>
     <table class="tableCourierCompany" border="1" align="center">
         <tr>
             <th colspan="2">@Html.ActionLink("Main Menu", "Main", "Main", null, new { @class = "btn btn-info btn-block" })</th>
@@ -16,7 +16,7 @@
             <th>Sender Name</th>
             <th>Receiver Name</th>
             <th>Delivery Type</th>
-            <th>Reviews</th>
+            <th>Details</th>
         </tr>
 
         @foreach (var item in Model)

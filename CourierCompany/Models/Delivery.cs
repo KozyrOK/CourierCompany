@@ -95,7 +95,7 @@ namespace CourierCompany.Models
             }
         }
 
-        public List<Delivery> GetAllReviews()
+        public List<Delivery> GetDeliveryOrders()
         {
             using (CourierCompanyContext context = new CourierCompanyContext())
             {

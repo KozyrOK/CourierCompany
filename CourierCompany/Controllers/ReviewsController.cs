@@ -6,11 +6,11 @@ namespace CourierCompany.Controllers
 {
     public class ReviewsController : Controller
     {        
-        public ActionResult ListReviews()
+        public ActionResult ListAllDeliveryOrders()
         {
             Delivery delivery = new Delivery();
-            List<Delivery> reviews = delivery.GetAllReviews();
-            return View(reviews); 
+            List<Delivery> listAllDeliveryOrders = delivery.GetDeliveryOrders();
+            return View(listAllDeliveryOrders); 
         }
 
         [HttpPost]
