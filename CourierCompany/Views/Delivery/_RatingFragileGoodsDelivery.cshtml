@@ -1,17 +1,17 @@
 ﻿
-@using (Html.BeginForm("ModifiedFragileRating", "Reviews", FormMethod.Post))
+@using (Html.BeginForm("ModifiedFragileGoodsRating", "Reviews", FormMethod.Post))
 {
     <input type="hidden" name="DeliveryFragileGoodsRatingId" value="@Model.IdInBaseDeliveryRating" />
     <input type="hidden" name="IdDelivery" value="@Model.DeliveryId" />
 
     <tr>
         <td>Timely delivery:</td>
-        <td><input type="checkbox" name="IsIntimeFragileGoods"></td>
+        <td><input type="checkbox" name="IsIntimeFragileGoods" value="true"></td>
     </tr>
 
     <tr>
         <td>Presence of defects:</td>
-        <td><input type="checkbox" name="IsDefectFragileGoods" /></td>
+        <td><input type="checkbox" name="IsDefectFragileGoods" value="true"/></td>
     </tr>
 
     <tr>

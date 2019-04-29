@@ -54,8 +54,8 @@
 
         else if (delivery.DeliveryType == (DeliveryType)1)
             {
-            DeliveryFragileRating rating = new DeliveryFragileRating(id);
-            @Html.Partial("~/Views/Reviews/_FragileDeliveryRating.cshtml", rating)
+            DeliveryFragileGoodsRating rating = new DeliveryFragileGoodsRating(id);
+            @Html.Partial("~/Views/Reviews/_FragileGoodsDeliveryRating.cshtml", rating)
             }
 
         else if (delivery.DeliveryType == (DeliveryType)2)
@@ -72,7 +72,7 @@
         </tr>
 
         <tr>
-            <td colspan="2" align="center"><button type="button" class="btn btn-primary btn-block" align="center" onclick="location.href='@Url.Action("ListReviews", "Reviews")'">All reviews</button></td>
+            <td colspan="2" align="center"><button type="button" class="btn btn-primary btn-block" align="center" onclick="location.href='@Url.Action("ListAllDeliveryOrders", "Reviews")'">All reviews</button></td>
         </tr>
 
     </table>

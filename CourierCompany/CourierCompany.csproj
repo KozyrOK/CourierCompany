@@ -207,7 +207,7 @@
     <Content Include="Views\Reviews\ListAllDeliveryOrders.cshtml" />
     <Content Include="Views\Reviews\_EquipmentDeliveryRating.cshtml" />
     <Content Include="Views\Reviews\_FoodDeliveryRating.cshtml" />
-    <Content Include="Views\Reviews\_FragileDeliveryRating.cshtml" />
+    <Content Include="Views\Reviews\_FragileGoodsDeliveryRating.cshtml" />
     <Content Include="Views\Main\Main.cshtml" />
     <Content Include="Views\Delivery\DeliveryID.cshtml" />
     <Content Include="Views\Delivery\DeliveryIDRating.cshtml" />
@@ -216,7 +216,7 @@
     <Content Include="Views\Delivery\NewDelivery.cshtml" />
     <Content Include="Views\Delivery\_RatingEquipmentDelivery.cshtml" />
     <Content Include="Views\Delivery\_RatingFoodDelivery.cshtml" />
-    <Content Include="Views\Delivery\_RatingFragileDelivery.cshtml" />
+    <Content Include="Views\Delivery\_RatingFragileGoodsDelivery.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
