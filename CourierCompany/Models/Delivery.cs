@@ -76,9 +76,9 @@ namespace CourierCompany.Models
 
             else if (DeliveryType == (DeliveryType)1)
             {
-                DeliveryFragileRating rating = new DeliveryFragileRating();
+                DeliveryFragileGoodsRating rating = new DeliveryFragileGoodsRating();
                 rating.IdDelivery = DeliveryId;
-                idRating = rating.AddDeliveryFragileRating();                
+                idRating = rating.AddDeliveryFragileGoodsRating();                
             }
 
             else if (DeliveryType == (DeliveryType)2)

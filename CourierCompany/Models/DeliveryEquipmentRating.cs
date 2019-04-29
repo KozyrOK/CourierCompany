@@ -15,10 +15,10 @@ namespace CourierCompany.Models
         public bool IsCompleteEquipment { get; set; }
         [Display(Name = "Common delivery raiting")]
         [Range (0, 10)]
-        public byte CommonDeliveryRaiting { get; set; }
+        public byte CommonDeliveryRaitingEquipment { get; set; }
         [Display(Name = "Comment")]
         [MaxLength (200)]
-        public string TextComment { get; set; }
+        public string TextCommentEquipment { get; set; }
 
 
         public DeliveryEquipmentRating() { }
@@ -34,8 +34,8 @@ namespace CourierCompany.Models
                     IdDelivery = temp.IdDelivery;
                     IsIntimeEquipment = temp.IsIntimeEquipment;
                     IsCompleteEquipment = temp.IsCompleteEquipment;
-                    CommonDeliveryRaiting = temp.CommonDeliveryRaiting;
-                    TextComment = temp.TextComment;
+                    CommonDeliveryRaitingEquipment = temp.CommonDeliveryRaitingEquipment;
+                    TextCommentEquipment = temp.TextCommentEquipment;
                 }
             }
         }        

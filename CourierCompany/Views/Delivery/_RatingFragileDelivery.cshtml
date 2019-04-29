@@ -1,32 +1,32 @@
 ﻿
 @using (Html.BeginForm("ModifiedFragileRating", "Reviews", FormMethod.Post))
 {
-    <input type="hidden" name="DeliveryFragileRatingId" value="@Model.IdInBaseDeliveryRating" />
+    <input type="hidden" name="DeliveryFragileGoodsRatingId" value="@Model.IdInBaseDeliveryRating" />
     <input type="hidden" name="IdDelivery" value="@Model.DeliveryId" />
 
     <tr>
         <td>Timely delivery:</td>
-        <td><input type="checkbox" name="IsIntimeFragile"></td>
+        <td><input type="checkbox" name="IsIntimeFragileGoods"></td>
     </tr>
 
     <tr>
         <td>Presence of defects:</td>
-        <td><input type="checkbox" name="IsDefectFragile" /></td>
+        <td><input type="checkbox" name="IsDefectFragileGoods" /></td>
     </tr>
 
     <tr>
         <td>Package integrity:</td>
-        <td><input type="number" name="IsPackCompleteFragile" min="0" max="10" value="10" /></td>
+        <td><input type="number" name="IsPackCompleteFragileGoods" min="0" max="10" value="10" /></td>
     </tr>
 
     <tr>
         <td>Common delivery raiting:</td>
-        <td><input type="number" name="CommonDeliveryRaiting" min="0" max="10" value="10" /></td>
+        <td><input type="number" name="CommonDeliveryRaitingFragileGoods" min="0" max="10" value="10" /></td>
     </tr>
 
     <tr>
         <td>Comment:</td>
-        <td><textarea input type="text" name="TextComment" class="form-control" rows="3" maxlength="200"></textarea></td>
+        <td><textarea input type="text" name="TextCommentFragileGoods" class="form-control" rows="3" maxlength="200"></textarea></td>
     </tr>
 
     <tr>

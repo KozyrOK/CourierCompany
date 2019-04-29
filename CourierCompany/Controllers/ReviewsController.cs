@@ -25,9 +25,9 @@ namespace CourierCompany.Controllers
         }
 
         [HttpPost]
-        public ActionResult ModifiedFragileRating(DeliveryFragileRating rating)
+        public ActionResult ModifiedFragileGoodsRating(DeliveryFragileGoodsRating rating)
         {
-            rating.DeliveryFragileRatingModified();
+            rating.DeliveryFragileGoodsRatingModified();
             int? id = rating.IdDelivery;
             Delivery delivery = new Delivery(id);
             delivery.IsPresentRating = true;

@@ -19,10 +19,10 @@ namespace CourierCompany.Models
         public byte СorrectPackFood { get; set; }
         [Display(Name = "Common delivery raiting")]
         [Range(0, 10)]
-        public byte CommonDeliveryRaiting { get; set; }
+        public byte CommonDeliveryRaitingFood { get; set; }
         [Display(Name = "Comment")]
         [MaxLength(200)]
-        public string TextComment { get; set; }
+        public string TextCommentFood { get; set; }
 
         public DeliveryFoodRating() { }
 
@@ -38,8 +38,8 @@ namespace CourierCompany.Models
                     IsIntimeFood = temp.IsIntimeFood;
                     FreshFood = temp.FreshFood;
                     СorrectPackFood = temp.СorrectPackFood;
-                    CommonDeliveryRaiting = temp.CommonDeliveryRaiting;
-                    TextComment = temp.TextComment;
+                    CommonDeliveryRaitingFood = temp.CommonDeliveryRaitingFood;
+                    TextCommentFood = temp.TextCommentFood;
                 }
             }
         }

@@ -136,7 +136,7 @@
     <Compile Include="Models\Delivery.cs" />
     <Compile Include="Models\DeliveryEquipmentRating.cs" />
     <Compile Include="Models\DeliveryFoodRating.cs" />
-    <Compile Include="Models\DeliveryFragileRating.cs" />
+    <Compile Include="Models\DeliveryFragileGoodsRating.cs" />
     <Compile Include="Models\DeliveryType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
