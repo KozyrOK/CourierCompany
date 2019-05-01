@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace CourierCompany.Models
 {
+  
     public class Delivery
     {
         [Key]
